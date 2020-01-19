@@ -23,7 +23,7 @@
     Como te habrás dado cuenta, HTML está dividido en elementos que se ven algo así:
 
     <header></header>
-    <p></p>
+    <p></p >
     <img />
 
     A estos elementos los llamamos "tags". Cada elemento de la página tiene un tag que abre y otro que
@@ -125,9 +125,14 @@
 //       Utilizá console.log para ver lo que obtuviste!
 
 
+//aprendiendoDom();
 
-
-
+function aprendiendoDom() {
+    const nuestroTitulo = document.querySelector('h1');
+    console.log(nuestroTitulo.innerText);
+    nuestroTitulo.innerText = 'Hola r/Argentina programa!'
+    console.log(nuestroTitulo.innerText);
+}
 
 /*
     Obteniendo elementos similares.
@@ -146,15 +151,34 @@
 
 // TAREA: Obtené todos los elementos <li> de la página en una variable llamada mediaLinks.
 
+//testeoSecuencia();
+    function testeoSecuencia(){
+         setInterval(function(){
+            const nuestroTitulo = document.querySelector('h1');
+            nuestroTitulo.innerText = String(Math.random());
+    }   , 1000);
+}
 
-
+//todosLosElementos();
+function todosLosElementos(){
+    const mediaLinks = document.querySelectorAll('li');
+    console.log(mediaLinks);
+    for(let i = 0; i<mediaLinks.length; i++){
+        console.log(mediaLinks[i].innerText);
+        mediaLinks[i].innerText = 'Hola';
+    }
+}
 
 
 
 // TAREA: Ahora utilizá console.log para ver la cantidad de 
 // elementos li que hay con mediaLinks.length
 
-
+//cantidadElementos();
+function cantidadElementos(){
+    const mediaLinks = document.querySelectorAll('li');
+    console.log(mediaLinks.length);
+}
 
 
 
@@ -164,6 +188,13 @@
 
 
 
+//bucleitems();
+function bucleitems(){
+    const mediaLinks = document.querySelectorAll('li');
+    for(let i = 0; i < mediaLinks.length; i++){
+        console.log(mediaLinks[i].innerText);
+    }
+}
 
 
 
@@ -185,7 +216,10 @@
 // y utilizá console.log para mostrarlo.
 
 
-
+//mostrarH();
+function mostrarH(){
+    console.log(document.querySelector('h1').innerText);
+}
 
 
 
@@ -206,6 +240,10 @@
 // TAREA: Hagamos un nuevo título! Cambiá el contenido de nuestro 'h1' y ponele lo que quieras.
 
 
+//cambiarH();
+function cambiarH(){
+    console.log(document.querySelector('h1').innerText = 'Gatorade');
+}
 
 
 
@@ -223,7 +261,11 @@
 
 // TAREA: Actualizá el valor del atributo 'src' de nuestra etiqueta 'img' a "img/kittens.jpeg".
 
-
+editarAtributo();
+function editarAtributo(){
+        const imagen = document.querySelector('.src');
+        imagen.src = "img/kittens.jpg"
+}
 
 
 
@@ -288,3 +330,18 @@
 // Levántate, estira las piernas y celebra tu logro.                      //
 // ¡Creo que esto amerita un festejo!                                     //
 ////////////////////////////////////////////////////////////////////////////
+
+
+ingresarAlBar();
+function ingresarAlBar(){
+    const $botonIngreso = document.querySelector('#ingresar');
+    $botonIngreso.onclick = function(){
+        const $edadUsuario = Number(document.querySelector('#edad-usuario').value);
+        const $nombreUsuario = document.querySelector('#nombre-usuario').value;
+        //$edadUsuario>=18 ? alert(`Bienvenido al bar, ${$nombreUsuario}`) : alert(`${$nombreUsuario}, sos menor de edad`);
+        let textoResultado;
+        $edadUsuario>=18 ? textoResultado ='Podes ingresar' : textoResultado ='No podes ingresar'
+        document.querySelector('#resultado').innerText= textoResultado;
+        return false;
+    }
+}
